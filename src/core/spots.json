@@ -1,0 +1,1143 @@
+[
+  {
+    "id": "almere",
+    "name": "Almere",
+    "lat": 52.3351705,
+    "lon": 5.2055937,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "ameland-noordzee",
+    "name": "Ameland – Noordzee",
+    "lat": 53.4592833,
+    "lon": 5.7567996,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "ameland-waddenzee",
+    "name": "Ameland – Waddenzee",
+    "lat": 53.45774,
+    "lon": 5.77739,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "S",
+      "SE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "amstelmeer-lutjestrand-zuid",
+    "name": "Amstelmeer Lutjestrand zuid",
+    "lat": 52.8879372,
+    "lon": 4.914078,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "NW",
+      "W",
+      "SW",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "baarland",
+    "name": "Baarland",
+    "lat": 51.3942117,
+    "lon": 3.8944313,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "SW",
+      "S",
+      "SE",
+      "E"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "bergen-aan-zee",
+    "name": "Bergen aan Zee",
+    "lat": 52.6610417,
+    "lon": 4.6318186,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "bloemendaal-aan-zee",
+    "name": "Bloemendaal aan Zee",
+    "lat": 52.4014306,
+    "lon": 4.5444235,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "borssele-kaloot",
+    "name": "Borssele (de Kaloot)",
+    "lat": 51.433406,
+    "lon": 3.7105022,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "breskens-oost",
+    "name": "Breskens Oost",
+    "lat": 51.3969656,
+    "lon": 3.5584759,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "brouwersdam",
+    "name": "Brouwersdam",
+    "lat": 51.7604103,
+    "lon": 3.8462453,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "cadzand-bad-vlamingpolder",
+    "name": "Cadzand-bad – Vlamingpolder",
+    "lat": 51.3726277,
+    "lon": 3.3717963,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "cadzand-bad-west",
+    "name": "Cadzand-bad – West",
+    "lat": 51.380086,
+    "lon": 3.3863498,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "callantsoog",
+    "name": "Callantsoog",
+    "lat": 52.8662137,
+    "lon": 4.7031811,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "camperduin",
+    "name": "Camperduin",
+    "lat": 52.7253233,
+    "lon": 4.640891,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "castricum-aan-zee",
+    "name": "Castricum aan Zee",
+    "lat": 52.5572668,
+    "lon": 4.6099436,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "delfzijl",
+    "name": "Delfzijl",
+    "lat": 53.3340554,
+    "lon": 6.9345793,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "NW",
+      "SE",
+      "E",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "den-haag-zuiderstrand",
+    "name": "Den Haag – Zuiderstrand",
+    "lat": 52.0972558,
+    "lon": 4.2569433,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "den-helder-huisduinen",
+    "name": "Den Helder – Huisduinen",
+    "lat": 52.9513229,
+    "lon": 4.7213931,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "domburg",
+    "name": "Domburg",
+    "lat": 51.5666885,
+    "lon": 3.4972054,
+    "region": "Nederland (NKV)",
+    "level": "advanced",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "edam-noord-galgenveld",
+    "name": "Edam Noord – Galgenveld",
+    "lat": 52.525,
+    "lon": 5.045,
+    "region": "Nederland (NKV)",
+    "level": "advanced",
+    "type": "flat",
+    "goodWindDirections": [
+      "SE",
+      "E",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "egmond",
+    "name": "Egmond Binnen/aan Zee",
+    "lat": 52.6192522,
+    "lon": 4.6189198,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "grevelingendam-zuid",
+    "name": "Grevelingendam – Zuid",
+    "lat": 51.6713735,
+    "lon": 4.1010258,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "harlingen-waddenzee",
+    "name": "Harlingen – Waddenzee",
+    "lat": 53.1677791,
+    "lon": 5.4159472,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "hellevoetsluis-haringvliet",
+    "name": "Hellevoetsluis – Haringvliet",
+    "lat": 51.8218098,
+    "lon": 4.1242984,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "hindeloopen",
+    "name": "Hindeloopen",
+    "lat": 52.9432048,
+    "lon": 5.4056127,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "NW",
+      "W",
+      "SW",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "hoek-van-holland-hwsv",
+    "name": "Hoek van Holland, Hoekse Watersport Vereniging",
+    "lat": 51.9918233,
+    "lon": 4.1141781,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "ijmuiden-zone1",
+    "name": "IJmuiden Zone 1 (gem. Velsen)",
+    "lat": 52.4517144,
+    "lon": 4.5562396,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "wave",
+    "goodWindDirections": [
+      "NW",
+      "W",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "ijmuiderslag",
+    "name": "IJmuiderslag (gem. Velsen)",
+    "lat": 52.4559819,
+    "lon": 4.5608615,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "julianadorp",
+    "name": "Julianadorp",
+    "lat": 52.9035431,
+    "lon": 4.7223494,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "kamperland-roompot",
+    "name": "Kamperland – Roompot XBeach",
+    "lat": 51.5901849,
+    "lon": 3.7217565,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "E"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "katwijk",
+    "name": "Katwijk",
+    "lat": 52.1985077,
+    "lon": 4.3868682,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "kijkduin",
+    "name": "Kijkduin",
+    "lat": 52.0690158,
+    "lon": 4.2179504,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "wave",
+    "goodWindDirections": [
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "kijkduin-zandmotor",
+    "name": "Kijkduin – Zandmotor",
+    "lat": 52.0538256,
+    "lon": 4.1883106,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "NW",
+      "W",
+      "SW",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "lauwersoog-waddenzee",
+    "name": "Lauwersoog Waddenzee",
+    "lat": 53.4093666,
+    "lon": 6.214738,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "lelystad-bataviastrand",
+    "name": "Lelystad – Bataviastrand",
+    "lat": 52.5261039,
+    "lon": 5.4245294,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "maasvlakte2-slufter",
+    "name": "Maasvlakte 2 – Slufter",
+    "lat": 51.9240532,
+    "lon": 3.9843068,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "mirns",
+    "name": "Mirns",
+    "lat": 52.8510736,
+    "lon": 5.4814428,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "S",
+      "SE",
+      "E"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "muiderberg",
+    "name": "Muiderberg",
+    "lat": 52.3294959,
+    "lon": 5.1175176,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "E",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "neeltje-jans",
+    "name": "Neeltje Jans",
+    "lat": 51.636884,
+    "lon": 3.7028318,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "noordwijk-aan-zee",
+    "name": "Noordwijk aan Zee",
+    "lat": 52.2513526,
+    "lon": 4.4334709,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "noordwijk-langevelderslag",
+    "name": "Noordwijk Langevelderslag",
+    "lat": 52.235605,
+    "lon": 4.420977,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "oostvoorne-noordzee",
+    "name": "Oostvoorne Noordzee",
+    "lat": 51.9151368,
+    "lon": 4.0605978,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "oostvoornse-meer",
+    "name": "Oostvoornse meer",
+    "lat": 51.9188435,
+    "lon": 4.0700324,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "S",
+      "SE",
+      "E"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "ouddorp",
+    "name": "Ouddorp",
+    "lat": 51.7612098,
+    "lon": 3.8430439,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "paulinapolder",
+    "name": "Paulinapolder",
+    "lat": 51.3436428,
+    "lon": 3.7126521,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "petten",
+    "name": "Petten (Pettemer Zeewering)",
+    "lat": 52.7710545,
+    "lon": 4.658348,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "rockanje-sportstrand",
+    "name": "Rockanje Sportstrand",
+    "lat": 51.8696105,
+    "lon": 4.0484125,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "NW",
+      "SW",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "s-gravenzande-slag-beukel",
+    "name": "s-Gravenzande (slag Beukel)",
+    "lat": 52.0121689,
+    "lon": 4.1399226,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "schellinkhout",
+    "name": "Schellinkhout",
+    "lat": 52.6327618,
+    "lon": 5.1209857,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "S",
+      "SE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "scheveningen-noorderstrand",
+    "name": "Scheveningen – Noorderstrand",
+    "lat": 52.1124822,
+    "lon": 4.2857987,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "scheveningen-zwarte-pad",
+    "name": "Scheveningen – Zwarte Pad",
+    "lat": 52.1020975,
+    "lon": 4.2679668,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "schiermonnikoog-noordzee",
+    "name": "Schiermonnikoog (Noordzee: Paal 3-5)",
+    "lat": 53.4928549,
+    "lon": 6.1456761,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW",
+      "E",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "stavoren-suderstrand",
+    "name": "Stavoren – it Suderstrand",
+    "lat": 52.874805,
+    "lon": 5.366657,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "strand-horst",
+    "name": "Strand Horst",
+    "lat": 52.3102778,
+    "lon": 5.5591667,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "terneuzen-put-van",
+    "name": "Terneuzen (put van)",
+    "lat": 51.3401054,
+    "lon": 3.8225491,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "E",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "terschelling-groene-strand",
+    "name": "Terschelling – Groene Strand",
+    "lat": 53.3567904,
+    "lon": 5.2107992,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "SW",
+      "S",
+      "SE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "terschelling-noordzee",
+    "name": "Terschelling – Noordzee",
+    "lat": 53.4023215,
+    "lon": 5.2521273,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "texel",
+    "name": "Texel Paal 17.6 – 18.99 en 28.2 – 32",
+    "lat": 53.0769161,
+    "lon": 4.7327726,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "tholen-oesterdam",
+    "name": "Tholen Oesterdam",
+    "lat": 51.4994769,
+    "lon": 4.1875764,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "vlieland-noordzee",
+    "name": "Vlieland Noordzee",
+    "lat": 53.2855621,
+    "lon": 4.9930229,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "vrouwenpolder",
+    "name": "Vrouwenpolder",
+    "lat": 51.587827,
+    "lon": 3.6312446,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "W",
+      "E",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "wassenaarse-slag",
+    "name": "Wassenaarse slag",
+    "lat": 52.1616484,
+    "lon": 4.3466741,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "wijk-aan-zee-hangout",
+    "name": "Wijk aan Zee – de HangOut",
+    "lat": 52.4825029,
+    "lon": 4.5813183,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "wijk-aan-zee-pier",
+    "name": "Wijk aan Zee – Pier",
+    "lat": 52.4678482,
+    "lon": 4.5679558,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "wave",
+    "goodWindDirections": [
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "windsurfing-hoek-van-holland",
+    "name": "Windsurfing Hoek van Holland",
+    "lat": 51.9920141,
+    "lon": 4.1147996,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "workum",
+    "name": "Workum",
+    "lat": 52.9680765,
+    "lon": 5.4115373,
+    "region": "Nederland (NKV)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "zandvoort",
+    "name": "Zandvoort",
+    "lat": 52.369673,
+    "lon": 4.520576,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW",
+      "W",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "zuidlaardermeer",
+    "name": "Zuidlaardermeer",
+    "lat": 53.1458781,
+    "lon": 6.6965972,
+    "region": "Nederland (NKV)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "SW",
+      "S",
+      "SE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  }
+]

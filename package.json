@@ -1,0 +1,20 @@
+{
+  "name": "where_to_kite",
+  "version": "2.0.0",
+  "description": "Telegram-бот: подбирает кайт-спот и размер кайта по геолокации и прогнозу ветра. Слои: provider (источник погоды) / core (бизнес-логика) / storage / bot.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test src/**/*.test.js"
+  },
+  "dependencies": {
+    "grammy": "^1.30.0",
+    "node-fetch": "^3.3.2",
+    "dotenv": "^16.4.5",
+    "lowdb": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

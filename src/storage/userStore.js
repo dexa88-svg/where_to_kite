@@ -25,6 +25,19 @@ async function ensureReady() {
  * остальной код бота трогать не придётся, интерфейс тот же.
  */
 export const userStore = {
+  /** @returns {Promise<string|null>} "ru"|"en", или null если ещё не определён */
+  async getLanguage(chatId) {
+    await ensureReady();
+    return db.data.users[chatId]?.lang ?? null;
+  },
+
+  async setLanguage(chatId, lang) {
+    await ensureReady();
+    db.data.users[chatId] ??= {};
+    db.data.users[chatId].lang = lang;
+    await persist();
+  },
+
   async getWeight(chatId) {
     await ensureReady();
     return db.data.users[chatId]?.weightKg ?? null;

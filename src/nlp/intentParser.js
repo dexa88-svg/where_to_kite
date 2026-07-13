@@ -11,7 +11,12 @@ const SYSTEM_INSTRUCTION =
   '"day" — на какой день спрашивают (по умолчанию "today", если не указано). ' +
   '"isKiteQuestion" — false, если сообщение вообще не про катание/споты/ветер (тогда day можно не учитывать).';
 
-const KITE_WORDS = ["кайт", "спот", "катат", "ветер", "погод", "ехать", "поехать"];
+const KITE_WORDS = [
+  // русские
+  "кайт", "спот", "катат", "ветер", "погод", "ехать", "поехать",
+  // английские — бот отвечает и на английском, офлайн-фолбэк должен понимать оба языка
+  "kite", "spot", "wind", "weather", "ride", "riding", "where",
+];
 
 /**
  * Дешёвая офлайн-проверка без обращения к Gemini: есть ли в тексте хоть одно
@@ -31,7 +36,7 @@ export function hasKiteKeyword(text) {
 function parseIntentFallback(text) {
   const t = text.toLowerCase();
   const isKiteQuestion = hasKiteKeyword(t);
-  const day = t.includes("завтра") ? "tomorrow" : "today";
+  const day = t.includes("завтра") || t.includes("tomorrow") ? "tomorrow" : "today";
   return { day, isKiteQuestion };
 }
 

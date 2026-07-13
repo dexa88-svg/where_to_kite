@@ -8,6 +8,11 @@ const lastRequestAt = new Map(); // chatId -> timestamp
  * на кнопке геолокации может вызвать шквал запросов к Open-Meteo/Windy.
  */
 export async function rateLimit(ctx, next) {
+  // Callback-запросы (нажатия на инлайн-кнопки) не тратят внешний API и должны
+  // отвечать мгновенно — иначе ctx.answerCallbackQuery() внутри обработчика не
+  // успевает вызваться, и кнопка у пользователя зависает в состоянии "загрузка".
+  if (ctx.callbackQuery) return next();
+
   const chatId = ctx.chat?.id;
   if (!chatId) return next();
 

@@ -37,9 +37,12 @@ export function recommendKiteSize(windSpeedMs, riderWeightKg) {
   const scaled = entry.size * (riderWeightKg / 75);
   const size = roundToCommonSize(scaled);
 
+  // Возвращаем код предупреждения, а не готовый текст — локализация текста
+  // происходит в bot/format.js (см. src/i18n), чтобы эта функция оставалась
+  // независимой от языка пользователя.
   let warning = null;
-  if (windSpeedMs < 4) warning = "Ветра почти нет — кататься не получится.";
-  if (windSpeedMs > 22) warning = "Очень сильный ветер — только для опытных райдеров, оцени риски.";
+  if (windSpeedMs < 4) warning = "no_wind";
+  if (windSpeedMs > 22) warning = "strong_wind";
 
   return { size, warning };
 }

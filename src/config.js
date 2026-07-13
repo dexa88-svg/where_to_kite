@@ -55,6 +55,9 @@ export const config = Object.freeze({
   rateLimitMs: intEnv("RATE_LIMIT_SECONDS", 5) * 1000,
   defaultWeightKg: intEnv("DEFAULT_WEIGHT_KG", 75),
   logLevel: process.env.LOG_LEVEL || "info",
+  // Как часто писать в лог сводку по метрикам (кол-во запросов, ошибок, error rate).
+  // Текущий снапшот всегда доступен и без ожидания — см. GET /metrics.
+  metricsLogIntervalMinutes: intEnv("METRICS_LOG_INTERVAL_MINUTES", 30),
 
   httpTimeoutMs: 8000,
   httpRetries: 2,

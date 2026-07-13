@@ -81,7 +81,7 @@ export function registerCommands(bot, spots) {
       return ctx.reply(t("loc_invalid", lang));
     }
 
-    const placeName = await reverseGeocode(latitude, longitude);
+    const placeName = await reverseGeocode(latitude, longitude, lang);
     const loc = encodeLoc(latitude, longitude);
 
     const keyboard = new InlineKeyboard()

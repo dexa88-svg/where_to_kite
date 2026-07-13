@@ -8,15 +8,17 @@ const URL_ = "https://nominatim.openstreetmap.org/reverse";
  * и не более 1 запроса/сек (см. их usage policy). Наш rate limit по чату (5 сек)
  * и то, что это вызывается раз на отправку геолокации, укладывается с запасом.
  *
+ * @param {string} [lang] - "ru" | "en", язык пользователя (см. src/i18n) — иначе
+ *   Nominatim вернёт название на языке страны спота, а не пользователя.
  * @returns {Promise<string|null>} например "Заандам, Нидерланды", или null если не удалось
  */
-export async function reverseGeocode(lat, lon) {
+export async function reverseGeocode(lat, lon, lang = "ru") {
   const params = new URLSearchParams({
     format: "jsonv2",
     lat: String(lat),
     lon: String(lon),
     zoom: "10",
-    "accept-language": "ru",
+    "accept-language": lang,
   });
 
   try {

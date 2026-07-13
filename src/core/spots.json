@@ -1139,5 +1139,155 @@
     ],
     "minWindMs": 4,
     "maxWindMs": 25
+  },
+  {
+    "id": "naroch-lake",
+    "name": "Озеро Нарочь",
+    "lat": 54.859093,
+    "lon": 26.769158,
+    "region": "Беларусь (Минская область, Мядельский район)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "NW",
+      "N",
+      "SW",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "vileika-reservoir-kosuta",
+    "name": "Вилейское водохранилище (спот Косута)",
+    "lat": 54.486804,
+    "lon": 27.130505,
+    "region": "Беларусь (Минская область, Вилейский район)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "S",
+      "SE",
+      "SW",
+      "E"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "zaslavskoe-reservoir",
+    "name": "Заславское водохранилище (Минское море)",
+    "lat": 53.980177,
+    "lon": 27.387001,
+    "region": "Беларусь (Минская область)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "S",
+      "SW",
+      "W",
+      "NW",
+      "N"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "drivyaty-lake",
+    "name": "Озеро Дривяты (Браслав)",
+    "lat": 55.609802,
+    "lon": 27.034529,
+    "region": "Беларусь (Витебская область, Браславский район)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "soligorsk-reservoir",
+    "name": "Солигорское водохранилище",
+    "lat": 52.770396,
+    "lon": 27.550836,
+    "region": "Беларусь (Минская область, Солигорский район)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "krasnoe-lake-zhytkavichy",
+    "name": "Красное озеро (Чырвонае)",
+    "lat": 52.375472,
+    "lon": 28.005905,
+    "region": "Беларусь (Гомельская область, Житковичский район)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "dnepro-bragin-pond",
+    "name": "Днепро-Брагинский пруд",
+    "lat": 52.077943,
+    "lon": 30.633153,
+    "region": "Беларусь (Гомельская область, Лоевский район)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "selec-pond",
+    "name": "Пруд Селец",
+    "lat": 52.623129,
+    "lon": 24.870135,
+    "region": "Беларусь (Брестская область, Берёзовский район)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
+  },
+  {
+    "id": "lukovo-pond",
+    "name": "Пруд Луково",
+    "lat": 51.891348,
+    "lon": 24.273963,
+    "region": "Беларусь (Брестская область, Малоритский район)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 25
   }
 ]

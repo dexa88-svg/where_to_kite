@@ -1289,5 +1289,542 @@
     ],
     "minWindMs": 4,
     "maxWindMs": 25
+  },
+  {
+    "id": "wissant",
+    "name": "Wissant",
+    "lat": 50.8804,
+    "lon": 1.665,
+    "region": "France (Côte d'Opale, Pas-de-Calais)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "SW",
+      "W",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 15
+  },
+  {
+    "id": "sangatte",
+    "name": "Sangatte",
+    "lat": 50.9469,
+    "lon": 1.7519,
+    "region": "France (Côte d'Opale, Pas-de-Calais)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "SW",
+      "W",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 15
+  },
+  {
+    "id": "la-pointe-aux-oies",
+    "name": "La Pointe aux Oies",
+    "lat": 50.7728,
+    "lon": 1.6103,
+    "region": "France (Côte d'Opale, Pas-de-Calais)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "SW",
+      "W",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 14
+  },
+  {
+    "id": "le-touquet",
+    "name": "Le Touquet",
+    "lat": 50.5237,
+    "lon": 1.5855,
+    "region": "France (Côte d'Opale, Pas-de-Calais)",
+    "level": "beginner",
+    "type": "wave",
+    "goodWindDirections": [
+      "SW",
+      "W",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 14
+  },
+  {
+    "id": "baie-de-somme",
+    "name": "Baie de Somme",
+    "lat": 50.2167,
+    "lon": 1.6167,
+    "region": "France (Hauts-de-France, Somme)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "SW",
+      "W",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 14
+  },
+  {
+    "id": "merville-franceville",
+    "name": "Merville-Franceville",
+    "lat": 49.2814,
+    "lon": -0.1461,
+    "region": "France (Normandie, Calvados)",
+    "level": "beginner",
+    "type": "wave",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 13
+  },
+  {
+    "id": "quiberon",
+    "name": "Quiberon",
+    "lat": 47.4844,
+    "lon": -3.1197,
+    "region": "France (Bretagne, Morbihan)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 15
+  },
+  {
+    "id": "kerhilio-erdeven",
+    "name": "Kerhilio",
+    "lat": 47.6386,
+    "lon": -3.1467,
+    "region": "France (Bretagne, Morbihan)",
+    "level": "advanced",
+    "type": "wave",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 5,
+    "maxWindMs": 16
+  },
+  {
+    "id": "pont-mahe",
+    "name": "Pont Mahé",
+    "lat": 47.4419,
+    "lon": -2.3947,
+    "region": "France (Bretagne, Loire-Atlantique)",
+    "level": "advanced",
+    "type": "wave",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 5,
+    "maxWindMs": 16
+  },
+  {
+    "id": "ste-marguerite-landeda",
+    "name": "Ste Marguerite",
+    "lat": 48.6167,
+    "lon": -4.5833,
+    "region": "France (Bretagne, Finistère)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 15
+  },
+  {
+    "id": "la-baule",
+    "name": "La Baule",
+    "lat": 47.2833,
+    "lon": -2.3833,
+    "region": "France (Pays de la Loire, Loire-Atlantique)",
+    "level": "beginner",
+    "type": "wave",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 13
+  },
+  {
+    "id": "ile-de-re-rivedoux",
+    "name": "Île de Ré (Rivedoux-Plage)",
+    "lat": 46.1667,
+    "lon": -1.2667,
+    "region": "France (Nouvelle-Aquitaine, Charente-Maritime)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 14
+  },
+  {
+    "id": "les-huttes-oleron",
+    "name": "Les Huttes (Île d'Oléron)",
+    "lat": 45.9667,
+    "lon": -1.2833,
+    "region": "France (Nouvelle-Aquitaine, Charente-Maritime)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 14
+  },
+  {
+    "id": "lac-hourtin-carcans",
+    "name": "Lac Hourtin-Carcans",
+    "lat": 45.1667,
+    "lon": -1.0667,
+    "region": "France (Nouvelle-Aquitaine, Gironde)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 11
+  },
+  {
+    "id": "etang-de-lacanau",
+    "name": "Étang de Lacanau",
+    "lat": 44.9833,
+    "lon": -1.2,
+    "region": "France (Nouvelle-Aquitaine, Gironde)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 11
+  },
+  {
+    "id": "biscarrosse",
+    "name": "Biscarrosse",
+    "lat": 44.4667,
+    "lon": -1.2333,
+    "region": "France (Nouvelle-Aquitaine, Landes)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "W",
+      "SW",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 11
+  },
+  {
+    "id": "lac-serre-poncon",
+    "name": "Lac de Serre-Ponçon",
+    "lat": 44.5167,
+    "lon": 6.3,
+    "region": "France (Alpes, Hautes-Alpes)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "NE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 11
+  },
+  {
+    "id": "excenevex-lake-geneva",
+    "name": "Excenevex (Lac Léman)",
+    "lat": 46.345,
+    "lon": 6.325,
+    "region": "France (Alpes, Haute-Savoie)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "NE",
+      "SW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 11
+  },
+  {
+    "id": "monteynard-lake",
+    "name": "Lac de Monteynard",
+    "lat": 44.8667,
+    "lon": 5.7333,
+    "region": "France (Alpes, Isère)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 10
+  },
+  {
+    "id": "leucate-la-franqui",
+    "name": "Leucate - La Franqui",
+    "lat": 42.9167,
+    "lon": 3.0333,
+    "region": "France (Occitanie, Aude)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "NW",
+      "N",
+      "SE"
+    ],
+    "minWindMs": 5,
+    "maxWindMs": 20
+  },
+  {
+    "id": "la-palme",
+    "name": "La Palme",
+    "lat": 42.9667,
+    "lon": 2.9833,
+    "region": "France (Occitanie, Aude)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "NW",
+      "N",
+      "SE"
+    ],
+    "minWindMs": 5,
+    "maxWindMs": 18
+  },
+  {
+    "id": "etang-de-leucate-cap-coudalere",
+    "name": "Étang de Leucate (Cap Coudalère)",
+    "lat": 42.8333,
+    "lon": 3.0333,
+    "region": "France (Occitanie, Pyrénées-Orientales)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "NW",
+      "N",
+      "SE"
+    ],
+    "minWindMs": 5,
+    "maxWindMs": 18
+  },
+  {
+    "id": "le-barcares",
+    "name": "Le Barcarès",
+    "lat": 42.7833,
+    "lon": 3.0333,
+    "region": "France (Occitanie, Pyrénées-Orientales)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "NW",
+      "N",
+      "SE"
+    ],
+    "minWindMs": 5,
+    "maxWindMs": 18
+  },
+  {
+    "id": "pont-des-basses-canet-plage",
+    "name": "Pont des Basses (Canet-Plage)",
+    "lat": 42.7,
+    "lon": 3.05,
+    "region": "France (Occitanie, Pyrénées-Orientales)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "NW",
+      "N",
+      "SE"
+    ],
+    "minWindMs": 5,
+    "maxWindMs": 18
+  },
+  {
+    "id": "gruissan-vieille-nouvelle",
+    "name": "Plage de la Vieille Nouvelle (Gruissan)",
+    "lat": 43.1,
+    "lon": 3.1,
+    "region": "France (Occitanie, Aude)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "NW",
+      "N",
+      "SE"
+    ],
+    "minWindMs": 5,
+    "maxWindMs": 18
+  },
+  {
+    "id": "etang-du-grazel-gruissan",
+    "name": "Étang du Grazel (Gruissan)",
+    "lat": 43.1,
+    "lon": 3.0833,
+    "region": "France (Occitanie, Aude)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "NW",
+      "N",
+      "SE"
+    ],
+    "minWindMs": 5,
+    "maxWindMs": 18
+  },
+  {
+    "id": "saint-pierre-la-mer",
+    "name": "Saint-Pierre-la-Mer",
+    "lat": 43.15,
+    "lon": 3.1667,
+    "region": "France (Occitanie, Aude)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "NW",
+      "N",
+      "SE"
+    ],
+    "minWindMs": 5,
+    "maxWindMs": 18
+  },
+  {
+    "id": "etang-de-thau",
+    "name": "Étang de Thau",
+    "lat": 43.4,
+    "lon": 3.6,
+    "region": "France (Occitanie, Hérault)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "NW",
+      "N",
+      "SE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 16
+  },
+  {
+    "id": "richelieu-agde",
+    "name": "Richelieu (Agde)",
+    "lat": 43.28,
+    "lon": 3.47,
+    "region": "France (Occitanie, Hérault)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "NW",
+      "N",
+      "SE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 16
+  },
+  {
+    "id": "port-camargue",
+    "name": "Port Camargue (Le Grau-du-Roi)",
+    "lat": 43.5333,
+    "lon": 4.1333,
+    "region": "France (Occitanie, Gard)",
+    "level": "intermediate",
+    "type": "flat",
+    "goodWindDirections": [
+      "N",
+      "NW"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 16
+  },
+  {
+    "id": "beauduc-camargue",
+    "name": "Beauduc (Camargue)",
+    "lat": 43.3833,
+    "lon": 4.5833,
+    "region": "France (Provence-Alpes-Côte d'Azur, Bouches-du-Rhône)",
+    "level": "advanced",
+    "type": "wave",
+    "goodWindDirections": [
+      "N",
+      "NW"
+    ],
+    "minWindMs": 6,
+    "maxWindMs": 20
+  },
+  {
+    "id": "almanarre-hyeres",
+    "name": "Almanarre (Hyères)",
+    "lat": 43.0975,
+    "lon": 6.1225,
+    "region": "France (Provence-Alpes-Côte d'Azur, Var)",
+    "level": "beginner",
+    "type": "flat",
+    "goodWindDirections": [
+      "NW",
+      "N",
+      "SE"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 18
+  },
+  {
+    "id": "saint-aygulf",
+    "name": "Saint-Aygulf",
+    "lat": 43.4,
+    "lon": 6.7333,
+    "region": "France (Provence-Alpes-Côte d'Azur, Var)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "SE",
+      "S"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 11
+  },
+  {
+    "id": "piantarella-bonifacio",
+    "name": "Piantarella (Bonifacio)",
+    "lat": 41.3833,
+    "lon": 9.1667,
+    "region": "France (Corse, Corse-du-Sud)",
+    "level": "intermediate",
+    "type": "wave",
+    "goodWindDirections": [
+      "SW",
+      "E"
+    ],
+    "minWindMs": 4,
+    "maxWindMs": 16
   }
 ]

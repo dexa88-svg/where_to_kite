@@ -46,6 +46,28 @@ export function formatResults(spots, weightKg, lang = DEFAULT_LANG) {
   return spots.map((spot) => formatSpotLine(spot, weightKg, lang)).join("\n\n");
 }
 
+/**
+ * Строка для доп. спота (TOP4 и "показать ещё") — использует spot.forecastHour
+ * (см. findExtraSpots), а не spot.forecastNow/bestWindow как обычные споты.
+ */
+export function formatExtraSpotLine(spot, weightKg, lang = DEFAULT_LANG) {
+  const { size, warning } = recommendKiteSize(spot.forecastHour.speedMs, weightKg);
+
+  const lines = [
+    `${t("status_suitable", lang)} ${spot.name} (${spot.distanceKm} ${t("unit_km", lang)})`,
+    `${t("wind_label", lang)}: ${formatWindSpeed(spot.forecastHour.speedMs, spot.forecastHour.gustMs, lang)}, ${spot.forecastHour.dirCompass}`,
+    `${t("kite_label", lang)}: ~${size} ${t("unit_sqm", lang)}`,
+  ];
+  const warningMsg = warningText(warning, lang);
+  if (warningMsg) lines.push(`⚠️ ${warningMsg}`);
+
+  return lines.join("\n");
+}
+
+export function formatExtraResults(spots, weightKg, lang = DEFAULT_LANG) {
+  return spots.map((spot) => formatExtraSpotLine(spot, weightKg, lang)).join("\n\n");
+}
+
 function formatTime(isoTime) {
   return isoTime.slice(11, 16); // "HH:MM" из локального времени спота
 }

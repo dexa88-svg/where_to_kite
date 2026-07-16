@@ -50,6 +50,13 @@ const STRINGS = {
     unit_sqm: "м²",
     warning_no_wind: "Ветра почти нет — кататься не получится.",
     warning_strong_wind: "Очень сильный ветер — только для опытных райдеров, оцени риски.",
+
+    extra_spot_label: "🎯 Ещё вариант (в пределах 50 км, ветер под комфортный 8–10 м² кайт):",
+    more_spots_question: "Показать ещё варианты в пределах 50 км?",
+    more_spots_btn_yes: "Да, покажи ещё",
+    more_spots_btn_no: "Нет, спасибо",
+    more_spots_intro: "Вот ещё варианты поблизости (до 50 км):",
+    no_more_spots: "Больше подходящих вариантов в пределах 50 км не нашлось.",
   },
   en: {
     welcome:
@@ -95,6 +102,13 @@ const STRINGS = {
     unit_sqm: "m²",
     warning_no_wind: "Barely any wind — you won't be able to ride.",
     warning_strong_wind: "Very strong wind — experienced riders only, assess the risk.",
+
+    extra_spot_label: "🎯 One more option (within 50 km, wind for a comfortable 8–10 m² kite):",
+    more_spots_question: "Want to see more options within 50 km?",
+    more_spots_btn_yes: "Yes, show more",
+    more_spots_btn_no: "No, thanks",
+    more_spots_intro: "Here are a few more nearby options (within 50 km):",
+    no_more_spots: "Couldn't find any more suitable options within 50 km.",
   },
 };
 

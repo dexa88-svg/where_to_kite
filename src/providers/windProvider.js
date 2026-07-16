@@ -58,14 +58,19 @@ export async function getWindForecast(lat, lon) {
   return data;
 }
 
-/** Ближайшая к текущему моменту точка прогноза */
-export function pickCurrentHour(forecast) {
-  const now = Date.now();
+/** Ближайшая к моменту now+offsetMs точка прогноза (offsetMs=0 — текущий час) */
+export function pickHourOffset(forecast, offsetMs = 0) {
+  const target = Date.now() + offsetMs;
   return forecast.reduce((closest, entry) => {
-    const diff = Math.abs(new Date(entry.time).getTime() - now);
-    const closestDiff = Math.abs(new Date(closest.time).getTime() - now);
+    const diff = Math.abs(new Date(entry.time).getTime() - target);
+    const closestDiff = Math.abs(new Date(closest.time).getTime() - target);
     return diff < closestDiff ? entry : closest;
   }, forecast[0]);
+}
+
+/** Ближайшая к текущему моменту точка прогноза */
+export function pickCurrentHour(forecast) {
+  return pickHourOffset(forecast, 0);
 }
 
 export async function getCurrentWind(lat, lon) {

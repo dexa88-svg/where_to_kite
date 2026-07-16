@@ -1,6 +1,14 @@
-import { getWindForecast, pickCurrentHour } from "../providers/windProvider.js";
+import { getWindForecast, pickCurrentHour, pickHourOffset } from "../providers/windProvider.js";
+import { recommendKiteSize } from "./kiteSize.js";
 import { config } from "../config.js";
 import { logger } from "../logger.js";
+
+// Параметры для "TOP4" и "показать ещё" — доп. споты в фиксированном радиусе 50 км,
+// не зависящем от config.searchRadiusKm (тот обычно шире, 150 км по умолчанию).
+const EXTRA_RADIUS_KM = 50;
+const EXTRA_MAX_TO_CHECK = 30; // спотов в 50 км обычно немного, прогноз почти всегда из кэша
+const SWEET_SPOT_KITE_SIZE = 9; // середина диапазона 8–10 м² — "комфортный" кайт
+const MIN_KITE_SIZE = 6; // если ветер настолько силён, что нужен кайт меньше — не предлагаем
 
 function haversineKm(lat1, lon1, lat2, lon2) {
   const R = 6371;
@@ -157,4 +165,92 @@ export async function findBestSpots(userLocation, allSpots, opts = {}) {
     if (!!b.suitable - !!a.suitable !== 0) return !!b.suitable - !!a.suitable;
     return a.distanceKm - b.distanceKm;
   });
+}
+
+/**
+ * Резолверы часа прогноза для findExtraSpots — инкапсулируют, "когда именно" смотреть
+ * ветер для доп. спотов, чтобы commands.js не трогал windProvider напрямую.
+ */
+export function nowHourResolver() {
+  return (forecast) => pickCurrentHour(forecast);
+}
+
+export function offsetHourResolver(hoursAhead) {
+  return (forecast) => pickHourOffset(forecast, hoursAhead * 60 * 60 * 1000);
+}
+
+export function dayWindowResolver(day) {
+  return (forecast, spot) => findBestWindowForDay(forecast, spot, day);
+}
+
+/**
+ * Доп. споты сверх основного TOP3: ищем в фиксированном радиусе 50 км (независимо от
+ * config.searchRadiusKm), требуем совпадение направления+силы ветра ("suitable") И
+ * чтобы рекомендуемый кайт был не меньше MIN_KITE_SIZE — иначе ветер слишком силён.
+ * Из прошедших фильтр выбираем ближайшие по размеру кайта к "комфортным" 8–10 м².
+ *
+ * Используется и для TOP4 (count=1, resolveHour = "сейчас"/окно дня), и для
+ * "показать ещё" (count=3, resolveHour = "+2 часа от сейчас").
+ *
+ * @param {{lat:number, lon:number}} userLocation
+ * @param {Array} allSpots
+ * @param {object} opts
+ * @param {string[]} [opts.excludeIds] - id спотов, уже показанных пользователю (не повторяем)
+ * @param {number} opts.weightKg
+ * @param {(forecast: Array, spot: object) => object} opts.resolveHour - выбирает час прогноза для спота
+ * @param {number} [opts.count]
+ * @param {number} [opts.radiusKm]
+ * @param {number} [opts.maxToCheck]
+ * @param {(lat:number, lon:number) => Promise<Array>} [opts.getForecast] - для тестов (по умолчанию getWindForecast)
+ */
+export async function findExtraSpots(userLocation, allSpots, opts) {
+  const {
+    excludeIds = [],
+    weightKg,
+    resolveHour,
+    count = 1,
+    radiusKm = EXTRA_RADIUS_KM,
+    maxToCheck = EXTRA_MAX_TO_CHECK,
+    getForecast = getWindForecast,
+  } = opts;
+
+  const excluded = new Set(excludeIds);
+  const nearby = nearbySpots(userLocation, allSpots, radiusKm, maxToCheck).filter(
+    (spot) => !excluded.has(spot.id)
+  );
+  if (nearby.length === 0) return [];
+
+  const scored = await Promise.all(
+    nearby.map(async (spot) => {
+      try {
+        const forecast = await getForecast(spot.lat, spot.lon);
+        const hour = resolveHour(forecast, spot);
+        if (!hour) return null;
+
+        const directionMatch = spot.goodWindDirections.includes(hour.dirCompass);
+        const speedInRange = hour.speedMs >= spot.minWindMs && hour.speedMs <= spot.maxWindMs;
+        const suitable = directionMatch && speedInRange;
+        if (!suitable) return null;
+
+        const { size } = recommendKiteSize(hour.speedMs, weightKg);
+        if (size < MIN_KITE_SIZE) return null; // ветер слишком силён для комфортного кайта
+
+        return {
+          ...spot,
+          forecastHour: hour,
+          suitable: true,
+          kiteSize: size,
+          sizeDistance: Math.abs(size - SWEET_SPOT_KITE_SIZE),
+        };
+      } catch (err) {
+        logger.warn("Не удалось получить прогноз для доп. спота", { spot: spot.id, error: err.message });
+        return null;
+      }
+    })
+  );
+
+  return scored
+    .filter(Boolean)
+    .sort((a, b) => a.sizeDistance - b.sizeDistance || a.distanceKm - b.distanceKm)
+    .slice(0, count);
 }

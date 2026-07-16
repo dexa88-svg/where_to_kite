@@ -36,10 +36,12 @@ export async function fetchWithRetry(url, options = {}, retries = config.httpRet
 }
 
 function backoffMs(attempt) {
-  return 300 * 2 ** attempt; // 300ms, 600ms, 1200ms...
+  // + джиттер (0-250мс): без него несколько параллельных воркеров, получивших 429
+  // почти одновременно, повторяют запрос тоже почти одновременно — и снова ловят 429.
+  return 300 * 2 ** attempt + Math.random() * 250;
 }
 
-/** Для 429 уважаем Retry-After от сервера, если он есть; иначе — обычный backoff */
+/** Для 429 уважаем Retry-After от сервера, если он есть; иначе — обычный backoff (+джиттер) */
 function retryDelayMs(res, attempt) {
   const retryAfter = res.status === 429 ? Number(res.headers?.get?.("retry-after")) : NaN;
   if (Number.isFinite(retryAfter) && retryAfter > 0) return retryAfter * 1000;

@@ -60,5 +60,5 @@ export const config = Object.freeze({
   metricsLogIntervalMinutes: intEnv("METRICS_LOG_INTERVAL_MINUTES", 30),
 
   httpTimeoutMs: 8000,
-  httpRetries: 2,
+  httpRetries: 3, // было 2 — увеличили из-за 429 от Open-Meteo при опросе TOP4/"показать ещё"
 });

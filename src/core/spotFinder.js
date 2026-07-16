@@ -6,9 +6,31 @@ import { logger } from "../logger.js";
 // Параметры для "TOP4" и "показать ещё" — доп. споты в фиксированном радиусе 50 км,
 // не зависящем от config.searchRadiusKm (тот обычно шире, 150 км по умолчанию).
 const EXTRA_RADIUS_KM = 50;
-const EXTRA_MAX_TO_CHECK = 30; // спотов в 50 км обычно немного, прогноз почти всегда из кэша
+const EXTRA_MAX_TO_CHECK = 15; // в плотных регионах (напр. побережье NL) в 50км может быть много спотов
 const SWEET_SPOT_KITE_SIZE = 9; // середина диапазона 8–10 м² — "комфортный" кайт
 const MIN_KITE_SIZE = 6; // если ветер настолько силён, что нужен кайт меньше — не предлагаем
+
+// Сколько запросов прогноза выполняем одновременно. Open-Meteo (бесплатный тариф)
+// отдаёт 429 "Too many concurrent requests", если долбить его большим Promise.all
+// сразу по всем найденным спотам — особенно заметно после добавления TOP4/"показать
+// ещё", которые опрашивают ещё до 15 спотов в 50 км вдобавок к основным maxSpotsToCheck.
+const FORECAST_CONCURRENCY = 5;
+
+/** Как Promise.all(items.map(fn)), но не больше `concurrency` одновременных вызовов fn */
+async function mapWithConcurrency(items, concurrency, fn) {
+  const results = new Array(items.length);
+  let nextIndex = 0;
+
+  async function worker() {
+    while (nextIndex < items.length) {
+      const i = nextIndex++;
+      results[i] = await fn(items[i], i);
+    }
+  }
+
+  await Promise.all(Array.from({ length: Math.min(concurrency, items.length) }, worker));
+  return results;
+}
 
 function haversineKm(lat1, lon1, lat2, lon2) {
   const R = 6371;
@@ -101,21 +123,19 @@ export async function findBestSpotsForDay(userLocation, allSpots, day, opts = {}
   const nearby = nearbySpots(userLocation, allSpots, radiusKm, maxToCheck);
   if (nearby.length === 0) return [];
 
-  const results = await Promise.all(
-    nearby.map(async (spot) => {
-      try {
-        const forecast = await getWindForecast(spot.lat, spot.lon);
-        const window = findBestWindowForDay(forecast, spot, day);
-        if (!window) {
-          return { ...spot, error: `прогноз на ${day === "tomorrow" ? "завтра" : "сегодня"} пока недоступен` };
-        }
-        return { ...spot, bestWindow: window, suitable: window.suitable };
-      } catch (err) {
-        logger.warn("Не удалось получить прогноз для спота", { spot: spot.id, error: err.message });
-        return { ...spot, error: "прогноз временно недоступен" };
+  const results = await mapWithConcurrency(nearby, FORECAST_CONCURRENCY, async (spot) => {
+    try {
+      const forecast = await getWindForecast(spot.lat, spot.lon);
+      const window = findBestWindowForDay(forecast, spot, day);
+      if (!window) {
+        return { ...spot, error: `прогноз на ${day === "tomorrow" ? "завтра" : "сегодня"} пока недоступен` };
       }
-    })
-  );
+      return { ...spot, bestWindow: window, suitable: window.suitable };
+    } catch (err) {
+      logger.warn("Не удалось получить прогноз для спота", { spot: spot.id, error: err.message });
+      return { ...spot, error: "прогноз временно недоступен" };
+    }
+  });
 
   return results.sort((a, b) => {
     if (!!b.suitable - !!a.suitable !== 0) return !!b.suitable - !!a.suitable;
@@ -139,27 +159,25 @@ export async function findBestSpots(userLocation, allSpots, opts = {}) {
 
   if (nearby.length === 0) return [];
 
-  const results = await Promise.all(
-    nearby.map(async (spot) => {
-      try {
-        const forecast = await getWindForecast(spot.lat, spot.lon);
-        const now = pickCurrentHour(forecast);
-        const directionMatch = spot.goodWindDirections.includes(now.dirCompass);
-        const speedInRange = now.speedMs >= spot.minWindMs && now.speedMs <= spot.maxWindMs;
+  const results = await mapWithConcurrency(nearby, FORECAST_CONCURRENCY, async (spot) => {
+    try {
+      const forecast = await getWindForecast(spot.lat, spot.lon);
+      const now = pickCurrentHour(forecast);
+      const directionMatch = spot.goodWindDirections.includes(now.dirCompass);
+      const speedInRange = now.speedMs >= spot.minWindMs && now.speedMs <= spot.maxWindMs;
 
-        return {
-          ...spot,
-          forecastNow: now,
-          suitable: directionMatch && speedInRange,
-          directionMatch,
-          speedInRange,
-        };
-      } catch (err) {
-        logger.warn("Не удалось получить прогноз для спота", { spot: spot.id, error: err.message });
-        return { ...spot, error: "прогноз временно недоступен" };
-      }
-    })
-  );
+      return {
+        ...spot,
+        forecastNow: now,
+        suitable: directionMatch && speedInRange,
+        directionMatch,
+        speedInRange,
+      };
+    } catch (err) {
+      logger.warn("Не удалось получить прогноз для спота", { spot: spot.id, error: err.message });
+      return { ...spot, error: "прогноз временно недоступен" };
+    }
+  });
 
   return results.sort((a, b) => {
     if (!!b.suitable - !!a.suitable !== 0) return !!b.suitable - !!a.suitable;
@@ -220,34 +238,32 @@ export async function findExtraSpots(userLocation, allSpots, opts) {
   );
   if (nearby.length === 0) return [];
 
-  const scored = await Promise.all(
-    nearby.map(async (spot) => {
-      try {
-        const forecast = await getForecast(spot.lat, spot.lon);
-        const hour = resolveHour(forecast, spot);
-        if (!hour) return null;
+  const scored = await mapWithConcurrency(nearby, FORECAST_CONCURRENCY, async (spot) => {
+    try {
+      const forecast = await getForecast(spot.lat, spot.lon);
+      const hour = resolveHour(forecast, spot);
+      if (!hour) return null;
 
-        const directionMatch = spot.goodWindDirections.includes(hour.dirCompass);
-        const speedInRange = hour.speedMs >= spot.minWindMs && hour.speedMs <= spot.maxWindMs;
-        const suitable = directionMatch && speedInRange;
-        if (!suitable) return null;
+      const directionMatch = spot.goodWindDirections.includes(hour.dirCompass);
+      const speedInRange = hour.speedMs >= spot.minWindMs && hour.speedMs <= spot.maxWindMs;
+      const suitable = directionMatch && speedInRange;
+      if (!suitable) return null;
 
-        const { size } = recommendKiteSize(hour.speedMs, weightKg);
-        if (size < MIN_KITE_SIZE) return null; // ветер слишком силён для комфортного кайта
+      const { size } = recommendKiteSize(hour.speedMs, weightKg);
+      if (size < MIN_KITE_SIZE) return null; // ветер слишком силён для комфортного кайта
 
-        return {
-          ...spot,
-          forecastHour: hour,
-          suitable: true,
-          kiteSize: size,
-          sizeDistance: Math.abs(size - SWEET_SPOT_KITE_SIZE),
-        };
-      } catch (err) {
-        logger.warn("Не удалось получить прогноз для доп. спота", { spot: spot.id, error: err.message });
-        return null;
-      }
-    })
-  );
+      return {
+        ...spot,
+        forecastHour: hour,
+        suitable: true,
+        kiteSize: size,
+        sizeDistance: Math.abs(size - SWEET_SPOT_KITE_SIZE),
+      };
+    } catch (err) {
+      logger.warn("Не удалось получить прогноз для доп. спота", { spot: spot.id, error: err.message });
+      return null;
+    }
+  });
 
   return scored
     .filter(Boolean)

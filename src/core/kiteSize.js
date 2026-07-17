@@ -14,6 +14,14 @@ const BASE_TABLE = [
 
 const COMMON_SIZES = [4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 17];
 
+// Порог отношения "порыв / устойчивый ветер", начиная с которого предупреждаем
+// об порывистости отдельно от базового расчёта размера (см. recommendKiteSize).
+// Размер кайта по-прежнему считаем от устойчивого ветра — это то, на чём реально
+// катаешься большую часть сессии, депауэр бара покрывает умеренные порывы.
+// Но если порывы намного сильнее среднего, кайт, подобранный под средний ветер,
+// может ощутимо перепауэрить райдера в момент порыва — об этом и предупреждаем.
+const GUSTY_FACTOR_THRESHOLD = 1.4;
+
 function roundToCommonSize(size) {
   return COMMON_SIZES.reduce((prev, curr) =>
     Math.abs(curr - size) < Math.abs(prev - size) ? curr : prev
@@ -21,11 +29,13 @@ function roundToCommonSize(size) {
 }
 
 /**
- * @param {number} windSpeedMs - средняя скорость ветра, м/с
+ * @param {number} windSpeedMs - средняя (устойчивая) скорость ветра, м/с
  * @param {number} riderWeightKg - вес райдера, кг
+ * @param {number|null} [gustMs] - скорость порывов, м/с (если доступна) — используется
+ *   только для предупреждения о порывистости, на сам размер кайта не влияет
  * @returns {{size: number, warning: string|null}}
  */
-export function recommendKiteSize(windSpeedMs, riderWeightKg) {
+export function recommendKiteSize(windSpeedMs, riderWeightKg, gustMs = null) {
   if (!Number.isFinite(windSpeedMs) || windSpeedMs < 0) {
     throw new TypeError(`windSpeedMs должен быть неотрицательным числом, получено: ${windSpeedMs}`);
   }
@@ -43,6 +53,10 @@ export function recommendKiteSize(windSpeedMs, riderWeightKg) {
   let warning = null;
   if (windSpeedMs < 4) warning = "no_wind";
   if (windSpeedMs > 22) warning = "strong_wind";
+  if (!warning && Number.isFinite(gustMs) && windSpeedMs > 0) {
+    const gustFactor = gustMs / windSpeedMs;
+    if (gustFactor >= GUSTY_FACTOR_THRESHOLD) warning = "gusty";
+  }
 
   return { size, warning };
 }

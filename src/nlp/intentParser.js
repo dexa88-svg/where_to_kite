@@ -28,6 +28,36 @@ export function hasKiteKeyword(text) {
   return KITE_WORDS.some((w) => t.includes(w));
 }
 
+// Слова-филлеры, с которых часто начинается короткий уточняющий вопрос про день
+// ("а завтра?", "what about tomorrow?") — отбрасываем их перед сравнением.
+const DAY_FILLER_RE =
+  /^(and|what about|how about|as for|а|ну а|что насчёт|что насчет|как насчёт|как насчет)\s+/i;
+
+/**
+ * Распознаёт короткие сообщения, которые целиком состоят из указания на день
+ * (+ опциональный вопросительный филлер), например: "tomorrow", "tomorrow?",
+ * "today", "and tomorrow?", "а завтра?", "как насчёт сегодня". Такие сообщения
+ * не содержат кайт-ключевых слов, но в контексте этого бота почти всегда
+ * означают "куда поехать кататься {день}?" — поэтому распознаём их отдельно,
+ * не тратя на них Gemini и не отправляя пользователя в "не понял".
+ *
+ * @param {string} text
+ * @returns {"today"|"tomorrow"|null}
+ */
+export function matchDayOnly(text) {
+  const cleaned = text
+    .trim()
+    .toLowerCase()
+    .replace(/[?!.,]+$/g, "")
+    .trim()
+    .replace(DAY_FILLER_RE, "")
+    .trim();
+
+  if (cleaned === "today" || cleaned === "сегодня") return "today";
+  if (cleaned === "tomorrow" || cleaned === "завтра") return "tomorrow";
+  return null;
+}
+
 /**
  * Простой офлайн-фолбэк без LLM: ищем ключевые слова.
  * Используется если GEMINI_API_KEY не задан, запрос к Gemini не удался,

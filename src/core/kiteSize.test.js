@@ -31,3 +31,32 @@ test("нулевой/отрицательный вес — ошибка вали
   assert.throws(() => recommendKiteSize(10, 0), TypeError);
   assert.throws(() => recommendKiteSize(10, -70), TypeError);
 });
+
+test("сильный порыв относительно среднего ветра -> предупреждение о порывистости", () => {
+  const { warning } = recommendKiteSize(6, 75, 10.3); // как в примере из бота: 6 м/с, порывы 10.3 м/с
+  assert.equal(warning, "gusty");
+});
+
+test("умеренная порывистость -> без предупреждения", () => {
+  const { warning } = recommendKiteSize(10, 75, 12); // gustFactor 1.2, ниже порога
+  assert.equal(warning, null);
+});
+
+test("нет данных о порывах -> без предупреждения о порывистости", () => {
+  const { warning } = recommendKiteSize(10, 75);
+  assert.equal(warning, null);
+});
+
+test("предупреждение no_wind/strong_wind в приоритете над gusty", () => {
+  const weak = recommendKiteSize(2, 75, 5); // очень слабый ветер, но formally gustFactor высокий
+  assert.equal(weak.warning, "no_wind");
+
+  const strong = recommendKiteSize(25, 75, 40);
+  assert.equal(strong.warning, "strong_wind");
+});
+
+test("размер кайта не меняется от наличия порывов — только warning", () => {
+  const withoutGust = recommendKiteSize(6, 75).size;
+  const withGust = recommendKiteSize(6, 75, 10.3).size;
+  assert.equal(withGust, withoutGust);
+});

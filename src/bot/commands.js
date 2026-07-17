@@ -8,7 +8,7 @@ import {
 } from "../core/spotFinder.js";
 import { userStore } from "../storage/userStore.js";
 import { formatResults, formatDayResults, formatExtraSpotLine, formatExtraResults } from "./format.js";
-import { parseIntent, hasKiteKeyword } from "../nlp/intentParser.js";
+import { parseIntent, hasKiteKeyword, matchDayOnly } from "../nlp/intentParser.js";
 import { reverseGeocode } from "../providers/geocodeProvider.js";
 import { config } from "../config.js";
 import { logger } from "../logger.js";
@@ -216,16 +216,26 @@ export function registerCommands(bot, spots) {
     const lang = await resolveLang(ctx);
     const text = ctx.message.text;
 
-    // Не тратим квоту Gemini на сообщения, которые почти наверняка не по теме
-    // (приветствия, "спасибо" и т.п.) — для них и так хватает офлайн-фолбэка.
-    // Для похожих на вопрос/по теме сообщений — расходуем дневную квоту
-    // (общую на бот + персональную на пользователя, см. userStore.tryConsumeGeminiQuota).
-    let allowGemini = false;
-    if (hasKiteKeyword(text) || text.includes("?")) {
-      allowGemini = await userStore.tryConsumeGeminiQuota(ctx.chat.id);
-    }
+    // Короткие уточнения вроде "tomorrow?", "а завтра?", "what about today"
+    // распознаём отдельно и сразу — не тратя на них Gemini и не давая шанс
+    // ошибочно отправить пользователя в "не понял".
+    const dayOnly = matchDayOnly(text);
 
-    const intent = await parseIntent(text, { allowGemini });
+    let intent;
+    if (dayOnly) {
+      intent = { day: dayOnly, isKiteQuestion: true };
+    } else {
+      // Не тратим квоту Gemini на сообщения, которые почти наверняка не по теме
+      // (приветствия, "спасибо" и т.п.) — для них и так хватает офлайн-фолбэка.
+      // Для похожих на вопрос/по теме сообщений — расходуем дневную квоту
+      // (общую на бот + персональную на пользователя, см. userStore.tryConsumeGeminiQuota).
+      let allowGemini = false;
+      if (hasKiteKeyword(text) || text.includes("?")) {
+        allowGemini = await userStore.tryConsumeGeminiQuota(ctx.chat.id);
+      }
+
+      intent = await parseIntent(text, { allowGemini });
+    }
 
     if (!intent.isKiteQuestion) {
       return ctx.reply(t("not_understood_kite", lang));

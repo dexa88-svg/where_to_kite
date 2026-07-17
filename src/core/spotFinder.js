@@ -251,7 +251,7 @@ export async function findExtraSpots(userLocation, allSpots, opts) {
       const suitable = directionMatch && speedInRange;
       if (!suitable) return null;
 
-      const { size } = recommendKiteSize(hour.speedMs, weightKg);
+      const { size } = recommendKiteSize(hour.speedMs, weightKg, hour.gustMs);
       if (size < MIN_KITE_SIZE) return null; // ветер слишком силён для комфортного кайта
 
       return {

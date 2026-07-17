@@ -28,7 +28,11 @@ export function formatSpotLine(spot, weightKg, lang = DEFAULT_LANG) {
     return `❌ ${spot.name} — ${spot.error}`;
   }
 
-  const { size, warning } = recommendKiteSize(spot.forecastNow.speedMs, weightKg);
+  const { size, warning } = recommendKiteSize(
+    spot.forecastNow.speedMs,
+    weightKg,
+    spot.forecastNow.gustMs
+  );
   const status = spot.suitable ? t("status_suitable", lang) : t("status_not_suitable", lang);
 
   const lines = [
@@ -51,7 +55,11 @@ export function formatResults(spots, weightKg, lang = DEFAULT_LANG) {
  * (см. findExtraSpots), а не spot.forecastNow/bestWindow как обычные споты.
  */
 export function formatExtraSpotLine(spot, weightKg, lang = DEFAULT_LANG) {
-  const { size, warning } = recommendKiteSize(spot.forecastHour.speedMs, weightKg);
+  const { size, warning } = recommendKiteSize(
+    spot.forecastHour.speedMs,
+    weightKg,
+    spot.forecastHour.gustMs
+  );
 
   const lines = [
     `${t("status_suitable", lang)} ${spot.name} (${spot.distanceKm} ${t("unit_km", lang)})`,
@@ -78,7 +86,7 @@ export function formatSpotDayLine(spot, weightKg, lang = DEFAULT_LANG) {
   }
 
   const w = spot.bestWindow;
-  const { size, warning } = recommendKiteSize(w.speedMs, weightKg);
+  const { size, warning } = recommendKiteSize(w.speedMs, weightKg, w.gustMs);
   const status = spot.suitable ? t("status_suitable", lang) : t("status_not_suitable", lang);
 
   const lines = [
